@@ -42,7 +42,7 @@ public class MainActivity extends Activity {
         int id = item.getItemId();
         if (id == R.id.action_info) {
         	setContentView(R.layout.about_layout);
-            
+            //test
         	final RelativeLayout lay =(RelativeLayout)findViewById(R.id.aboutlayout);
         	lay.setBackgroundColor(Color.rgb(204,255,153));
         	TextView txt = (TextView)findViewById(R.id.About);
