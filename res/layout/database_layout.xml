@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <EditText
+        android:id="@+id/findEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:hint="fragment pytania..."
+        android:layout_alignParentTop="true"
+        android:ems="10" >
+
+    </EditText>
+
+    <Button
+        android:id="@+id/FindBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/findEdit"
+        android:layout_toLeftOf="@+id/nextBtn"
+        android:onClick="FindMatches"
+        android:text="Find" />
+
+    <Button
+        android:id="@+id/nextBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/findEdit"
+        android:layout_below="@+id/findEdit"
+        android:onClick="showRandomRecord"
+        android:text="Random Question" />
+
+	<TextView
+	    android:id="@+id/CurrentQuestion"
+	    android:layout_width="fill_parent"
+	    android:layout_height="200sp"
+	    android:layout_alignRight="@+id/SwitchButton"
+	    android:layout_below="@+id/FindBtn"
+	    android:text="Next Question"
+	    android:textSize="15sp" />
+
+	<TextView
+	    android:id="@+id/CurrentAnswer"
+        android:layout_width="fill_parent"
+        android:layout_height="200sp"
+        android:layout_below="@+id/CurrentQuestion"
+        
+        android:textSize="15sp"
+        android:text="Next Answer"/>
+
+	<Button
+	    android:id="@+id/SwitchButton"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_toRightOf="@+id/findEdit"
+	    android:onClick="SwitchLayout"
+	    android:text="zmień okno" />
+
+	<Button
+	    android:id="@+id/RegexButton"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_above="@+id/CurrentQuestion"
+	    android:layout_alignLeft="@+id/SwitchButton"
+	    android:layout_alignRight="@+id/CurrentQuestion"
+	    android:onClick="SwitchRegex"
+	    android:text="regex" />
+
+</RelativeLayout>

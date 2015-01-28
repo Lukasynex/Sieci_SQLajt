@@ -1,0 +1,14 @@
+<resources>
+
+    <string name="app_name">Pytania sieci</string>
+    <string name="hello_world">kliknij coś</string>
+    <string name="menu_settings">Opcje</string>
+    <string name="title_activity_main">Sieci_pytania</string>
+    
+    <string name="info">Informacje</string>
+    <string name="regexp">Regexp</string>
+    <string name="about">Regexp</string>
+    
+        
+    
+</resources>
