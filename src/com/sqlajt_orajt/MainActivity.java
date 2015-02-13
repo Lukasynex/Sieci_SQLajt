@@ -1,8 +1,8 @@
 package com.sqlajt_orajt;
 
 import java.util.Random;
-
 import android.os.Bundle;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.database.Cursor;
 import android.graphics.Color;
@@ -83,6 +83,7 @@ public class MainActivity extends Activity {
 	}
 
 	public void SaveEmployee(View v) {
+
 		EditText txtName = (EditText) findViewById(R.id.txtName);
 		EditText txtEmail = (EditText) findViewById(R.id.txtEmail);
 
@@ -130,7 +131,8 @@ public class MainActivity extends Activity {
 				return;
 			}
 			Cursor testdata = null;
-			testdata = mDbHelper.getAnswerByQuest(fragment, RegexAvailable, last_ID);
+			testdata = mDbHelper.getAnswerByQuest(fragment, RegexAvailable,
+					last_ID);
 			if (testdata == null) {
 				question.setText("Nic nie znaleziono");
 				answer.setText("Spróbuj ponownie");
@@ -139,7 +141,6 @@ public class MainActivity extends Activity {
 			}
 
 			String pyt = Utility.GetColumnValue(testdata, "PYTANIE");
-			// tak było
 			String odp = Utility.GetColumnValue(testdata, "ODPOWIEDZ");
 
 			last_ID = Utility.GetColumnValue(testdata, "ID");
@@ -152,8 +153,6 @@ public class MainActivity extends Activity {
 				last_ID = "0";
 				return;
 			}
-			// Utility.ShowMessageBox(this, "pytanie:\n"+ name + "odpowiedź:\n"+
-			// email);
 
 			mDbHelper.close();
 		} else {
