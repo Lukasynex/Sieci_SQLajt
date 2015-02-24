@@ -14,6 +14,14 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+/**
+ * TODO:
+ * naprawić, by apka działała poprawnie
+ * losowy wybór pytań fałszywych
+ * @author lukasz
+ *
+ */
+
 public class MainActivity extends Activity {
 	boolean currentLayout = false;
 	boolean RegexAvailable = false;
@@ -22,12 +30,18 @@ public class MainActivity extends Activity {
 
 	private Random generator = new Random();
 	private int index = 0;
-
+	private MillionaireMan hubert;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		// setContentView(R.layout.database_layout);
+		Button A = (Button)findViewById(R.id.buttonTL);
+		Button B = (Button)findViewById(R.id.button_TR);
+		Button C = (Button)findViewById(R.id.button_DL);
+		Button D = (Button)findViewById(R.id.button_DL);
+		
+		hubert  = new MillionaireMan(this, A, B, C, D);
 
 	}
 
@@ -182,26 +196,29 @@ public class MainActivity extends Activity {
 	}
 
 	public void LoadPreviousEmployee(View v) {
-		index -= 2;
-		if (index < 0)
-			index = 222;
-		LoadEmployee(v);
+		hubert.previousQuestion();
+//		
+//		index -= 2;
+//		if (index < 0)
+//			index = 222;
+//		LoadEmployee(v);
 	}
 
 	public void LoadEmployee(View v) {
-		TestAdapter mDbHelper = new TestAdapter(this);
-		mDbHelper.createDatabase();
-		mDbHelper.open();
-		++index;
-		if (index == 224)
-			index = 1;
-		Cursor testdata = mDbHelper.getTestData(index);
-
-		String name = Utility.GetColumnValue(testdata, "PYTANIE");
-		String email = Utility.GetColumnValue(testdata, "ODPOWIEDZ");
-
-		Utility.ShowMessageBox(this, name + "\n>>:" + email);
-		mDbHelper.close();
+		hubert.nextQuestion();
+//		TestAdapter mDbHelper = new TestAdapter(this);
+//		mDbHelper.createDatabase();
+//		mDbHelper.open();
+//		++index;
+//		if (index == 224)
+//			index = 1;
+//		Cursor testdata = mDbHelper.getTestData(index);
+//
+//		String name = Utility.GetColumnValue(testdata, "PYTANIE");
+//		String email = Utility.GetColumnValue(testdata, "ODPOWIEDZ");
+//
+//		Utility.ShowMessageBox(this, name + "\n>>:" + email);
+//		mDbHelper.close();
 	}
 
 	public void SwitchLayout(View v) {

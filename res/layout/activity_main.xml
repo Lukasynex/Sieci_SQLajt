@@ -4,13 +4,15 @@
     android:layout_height="match_parent" >
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/question"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
+        android:layout_above="@+id/button_TR"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
         android:padding="@dimen/padding_medium"
-        android:text="@string/hello_world"
+        android:minHeight="100sp"
+        android:text="treść pytania"
         tools:context=".MainActivity" />
 
     <EditText
@@ -51,12 +53,82 @@
         android:onClick="SaveEmployee"/>
 
     <Button
+        android:id="@+id/SwitchButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/txtName"
+        android:layout_alignBottom="@+id/txtName"
+        android:layout_toRightOf="@+id/txtName"
+        android:onClick="SwitchLayout"
+        android:text="@string/switch_view" />
+
+    <Button
+        android:id="@+id/button_DR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@+id/button_DL"
+        android:minWidth="160sp"
+        android:minHeight="100sp"
+        
+        android:text="Button_DR" />
+
+    <Button
+        android:id="@+id/button_DL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="360sp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/buttonTL"
+        
+        android:minHeight="100sp"
+        
+        android:text="Button_DL" />
+
+    <Button
+        android:id="@+id/button_TR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/buttonTL"
+        android:layout_alignBottom="@+id/buttonTL"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@+id/buttonTL"
+        android:minWidth="160sp"
+        android:minHeight="100sp"
+        
+        android:text="Button_TR" />
+
+    <Button
+        android:id="@+id/buttonTL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button_DR"
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@+id/btnSearch"
+        android:minHeight="100sp"
+        android:text="Button_TL" />
+
+    <TextView
+        android:id="@+id/information"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/SwitchButton"
+        android:layout_marginTop="26dp"
+        android:text="result" />
+
+    <Button
         android:id="@+id/btnSearch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/textView1"
-        android:layout_alignLeft="@+id/textView1"
-        android:layout_marginLeft="20dp"
+        android:layout_alignBaseline="@+id/button1"
+        android:layout_alignBottom="@+id/button1"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@+id/button1"
         android:onClick="LoadEmployee"
         android:text="następne pytanie" />
 
@@ -64,21 +136,10 @@
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/btnSearch"
-        android:layout_alignBottom="@+id/btnSearch"
+        android:layout_above="@+id/question"
         android:layout_alignParentLeft="true"
+        android:minWidth="160sp"
         android:onClick="LoadPreviousEmployee"
         android:text="poprzednie pytanie" />
-
-    <Button
-        android:id="@+id/SwitchButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/txtName"
-        android:layout_alignBottom="@+id/txtName"
-        android:layout_marginLeft="25dp"
-        android:layout_toRightOf="@+id/txtName"
-        android:onClick="SwitchLayout"
-        android:text="zmień okno" />
 
 </RelativeLayout>
