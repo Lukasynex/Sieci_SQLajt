@@ -4,18 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <TextView
-        android:id="@+id/question"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/button_TR"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:minHeight="100sp"
-        android:padding="@dimen/padding_medium"
-        android:text="treść pytania"
-        tools:context=".MainActivity" />
-
     <Button
         android:id="@+id/SwitchButton"
         android:layout_width="wrap_content"
@@ -23,60 +11,32 @@
         android:onClick="SwitchLayout"
         android:text="@string/switch_view" />
 
-    <Button
-        android:id="@+id/button_DR"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_toRightOf="@+id/button_DL"
-        android:minHeight="100sp"
-        android:minWidth="160sp"
-        android:text="D" />
-
-    <Button
-        android:id="@+id/button_DL"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignRight="@+id/buttonTL"
-        android:minHeight="100sp"
-        android:minWidth="360sp"
-        android:text="C" />
-
-    <Button
-        android:id="@+id/button_TR"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/buttonTL"
-        android:layout_alignBottom="@+id/buttonTL"
-        android:layout_alignParentRight="true"
-        android:layout_toRightOf="@+id/buttonTL"
-        android:minHeight="100sp"
-        android:minWidth="160sp"
-        android:text="B" />
-
-    <Button
-        android:id="@+id/buttonTL"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/button_DR"
-        android:layout_alignParentLeft="true"
-        android:layout_toLeftOf="@+id/btnSearch"
-        android:minHeight="100sp"
-        android:text="A" />
-
     <TextView
         android:id="@+id/information"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/SwitchButton"
+		android:minHeight="30sp"
+        android:text=" " />
+
+    <Button
+        android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/button1"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
         android:layout_below="@+id/SwitchButton"
-        android:layout_marginTop="26dp"
-        android:text=" " />
+        android:layout_marginTop="48dp"
+        android:minWidth="160sp"
+        android:onClick="LoadPreviousEmployee"
+        android:text="@string/prevQ_string" />
+
+    <Button
+        android:id="@+id/new_game_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/new_game" />
 
     <Button
         android:id="@+id/btnSearch"
@@ -84,19 +44,69 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/button1"
         android:layout_alignBottom="@+id/button1"
+        android:layout_alignLeft="@+id/button_TR"
         android:layout_alignParentRight="true"
-        android:layout_toRightOf="@+id/button1"
         android:onClick="LoadEmployee"
         android:text="@string/nextQ_string" />
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/button_TR"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/question"
+        android:layout_alignBottom="@+id/buttonTL"
+        android:layout_alignLeft="@+id/button_DR"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/buttonTL"
+        android:maxHeight="120sp"
+        android:minHeight="110sp"
+        
+        android:text="B" />
+
+    <Button
+        android:id="@+id/button_DL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:minWidth="160sp"
-        android:onClick="LoadPreviousEmployee"
-        android:text="@string/prevQ_string" />
+        android:layout_alignRight="@+id/button1"
+        android:layout_below="@+id/buttonTL"
+        android:minHeight="110sp"
+        android:minWidth="240sp"
+        android:text="C" />
+
+    <Button
+        android:id="@+id/button_DR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/button_TR"
+        android:layout_toRightOf="@+id/button_DL"
+        android:maxHeight="120sp"
+        android:minHeight="110sp"
+        android:text="D" />
+
+    <TextView
+        android:id="@+id/question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/button1"
+        android:minHeight="100sp"
+        android:padding="@dimen/padding_medium"
+        android:text="treść pytania"
+        tools:context=".MainActivity" />
+
+    <Button
+        android:id="@+id/buttonTL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/question"
+        android:layout_toLeftOf="@+id/button_TR"
+        android:maxHeight="120sp"
+        android:minHeight="110sp"
+        android:text="A" />
 
 </RelativeLayout>

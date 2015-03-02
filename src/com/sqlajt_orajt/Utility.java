@@ -16,7 +16,6 @@ public class Utility {
 			return "";
 		}
 	}
-
 	public static String GetString(EditText source) {
 		try {
 			return GetString(source.getText().toString());

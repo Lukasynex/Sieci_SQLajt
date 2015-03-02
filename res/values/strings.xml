@@ -26,6 +26,9 @@
     <string name="prevQ_string">poprzednie pytanie</string>
     <string name="nextA_string">następna odpowiedź</string>
     <string name="question_content_string">treść pytania</string>
+    <string name="new_game">Nowa gra</string>
+    <string name="onCorrect_string">Brawo, dobra odpowiedź!</string>
+    <string name="onFail_string">Niestety, błędna odpowiedź..</string>
     
 
 </resources>

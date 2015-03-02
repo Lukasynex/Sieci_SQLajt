@@ -2,11 +2,11 @@ package com.sqlajt_orajt;
 
 import java.util.Random;
 
-import android.os.Bundle;
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.database.Cursor;
 import android.graphics.Color;
+import android.media.MediaPlayer;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -45,12 +45,38 @@ public class MainActivity extends Activity {
 
 		hubert = new MillionaireMan(this, A, B, C, D);
 		setupButtons();
+		
 	}
 	private void setupButtons() {
 		final Button A = (Button) findViewById(R.id.buttonTL);
 		final Button B = (Button) findViewById(R.id.button_TR);
 		final Button C = (Button) findViewById(R.id.button_DL);
 		final Button D = (Button) findViewById(R.id.button_DR);
+		final Button new_game = (Button) findViewById(R.id.new_game_button);
+//		final Button prev_q = (Button) findViewById(R.id.button1);
+//		final Button next_q = (Button) findViewById(R.id.btnSearch);
+		
+		final MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.millionaire_game_start);
+		A.setEnabled(!true);
+		B.setEnabled(!true);
+		C.setEnabled(!true);
+		D.setEnabled(!true);
+//		next_q.setEnabled(!true);
+//		prev_q.setEnabled(!true);
+
+		new_game.setOnClickListener(new OnClickListener() {
+		
+			@Override
+			public void onClick(View v) {
+//				if(hubert!= null)
+				hubert.newGame();
+				mediaPlayer.start();
+				A.setEnabled(true);
+				B.setEnabled(true);
+				C.setEnabled(true);
+				D.setEnabled(true);
+			}
+		});
 		A.setOnClickListener(new OnClickListener() {
 
 			@Override
