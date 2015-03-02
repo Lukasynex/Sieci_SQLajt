@@ -4,13 +4,28 @@
     <string name="hello_world">kliknij coś</string>
     <string name="menu_settings">Opcje</string>
     <string name="title_activity_main">Sieci_pytania</string>
-    
     <string name="info">Informacje</string>
     <string name="regexp">Regexp</string>
     <string name="about">Regexp</string>
-    <string name="switch_view"> switch lay </string>
+    <string name="switch_view"> zmień okno </string>
+    <string name="about_author">Aplikację stworzył Lukasyno
+        Apka zawiera ponad 200 pytań z materiału dot. sieci komputerowych.
+        Jeśli chcesz aplikację z twoją bazą pytań, pisz: lukmar.lotus@gmail.com</string>
+    <string name="description" formatted="false">Regexp, czyli wyrażenia regularne to wzorce opisujące łańcuchy symboli
+        Przykłady:
+        id = \'5\' - wypisuje pytanie piąte
+        odpowiedz like \'ACL%\'  -  wypisuje rekord gdzie odpowiedź zaczyna się na ACL
+        pytanie like \'%bgp%\'   -  wypisuje rekord gdzie pytanie zawiera \'bgp\'
+        pytanie like \'%cisco\'  -  wypisuje pytanie kończące się na \'cisco\'
+        Wybór fragment działa analogicznie do wyrażenia (pytanie like \'%bgp%\'), 
+		wystarczy tylko wpisać bgp  jako fragment pytania</string>
+    <string name="find_string">Znajdź</string>
+    <string name="random_string">Losowe pytanie</string>
+    <string name="hint_string">fragment pytania..</string>
+    <string name="nextQ_string">następne pytanie</string>
+    <string name="prevQ_string">poprzednie pytanie</string>
+    <string name="nextA_string">następna odpowiedź</string>
+    <string name="question_content_string">treść pytania</string>
     
-    
-        
-    
+
 </resources>

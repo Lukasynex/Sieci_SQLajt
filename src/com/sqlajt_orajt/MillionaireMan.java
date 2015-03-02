@@ -16,7 +16,8 @@ public class MillionaireMan {
 	private int goodQueston;
 	private Random generator = new Random();
 	private Button A,B,C,D;
-	private final int numberOfQuestions;
+	private int numberOfQuestions;
+	
 	public MillionaireMan(MainActivity context, Button A, Button B, Button C, Button D) {
 		this.context = context;
 		this.A = A;
@@ -37,45 +38,17 @@ public class MillionaireMan {
 		TextView quest = (TextView)context.findViewById(R.id.question);
 		
 	}
-//	public void 
-	public void answered(int a) {
-		switch (a) {
-			case 0: {
-				
-				break;
-			}
-			case 1: {
-				
-				break;
-			}
-			case 2: {
-				
-				break;
-			}
-			case 3: {
-				
-			break;
-		}
-		}
-	}
+
 	public void onA() {
-		// TODO Auto-generated method stub
-		answered(0);
+//		if (currentQuestionId == 1)
 	}
 	public void onB() {
-		// TODO Auto-generated method stub
-		answered(1);
 	}
 	public void onC() {
-		// TODO Auto-generated method stub
-		answered(2);
 	}
 	public void onD() {
-		// TODO Auto-generated method stub
-		answered(3);
 	}
 	public void previousQuestion() {
-		// TODO Auto-generated method stub
 		--currentQuestionId;
 		setupAll();
 	}
@@ -106,7 +79,6 @@ public class MillionaireMan {
 			random1 = generator.nextInt(numberOfQuestions);
 			random2 = generator.nextInt(numberOfQuestions);
 			random3 = generator.nextInt(numberOfQuestions);
-			
 		}
 		badAnswer1 = mDbHelper.getTestData(random1);
 		badAnswer2 = mDbHelper.getTestData(random2);
@@ -115,6 +87,7 @@ public class MillionaireMan {
 		String sBadAnswer1 = Utility.GetColumnValue(badAnswer1, "ODPOWIEDZ");
 		String sBadAnswer2 = Utility.GetColumnValue(badAnswer2, "ODPOWIEDZ");
 		String sBadAnswer3 = Utility.GetColumnValue(badAnswer3, "ODPOWIEDZ");
+		
 		
 		//		if(random1 != currentQuestionId)
 		//			badAnswer1 = mDbHelper.getTestData(random1);

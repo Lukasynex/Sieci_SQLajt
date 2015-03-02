@@ -1,5 +1,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/milion_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
@@ -10,55 +11,15 @@
         android:layout_above="@+id/button_TR"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:padding="@dimen/padding_medium"
         android:minHeight="100sp"
+        android:padding="@dimen/padding_medium"
         android:text="treść pytania"
         tools:context=".MainActivity" />
-
-    <EditText
-        android:id="@+id/txtName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/textView1"
-        android:layout_marginTop="16dp"
-        android:hint="Name"
-        
-        android:visibility="gone"
-        android:ems="10" />
-
-    <EditText
-        android:id="@+id/txtEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignRight="@+id/txtName"
-        android:layout_below="@+id/txtName"
-        android:hint="Email"
-        android:visibility="gone"
-        android:ems="10" >
-
-    </EditText>
-
-    <Button
-        android:id="@+id/btnSave"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignRight="@+id/txtEmail"
-        android:layout_below="@+id/txtEmail"
-        android:text="Save" 
-        
-        android:visibility="gone"
-        android:onClick="SaveEmployee"/>
 
     <Button
         android:id="@+id/SwitchButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/txtName"
-        android:layout_alignBottom="@+id/txtName"
-        android:layout_toRightOf="@+id/txtName"
         android:onClick="SwitchLayout"
         android:text="@string/switch_view" />
 
@@ -69,23 +30,20 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_toRightOf="@+id/button_DL"
-        android:minWidth="160sp"
         android:minHeight="100sp"
-        
-        android:text="Button_DR" />
+        android:minWidth="160sp"
+        android:text="D" />
 
     <Button
         android:id="@+id/button_DL"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:minWidth="360sp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignRight="@+id/buttonTL"
-        
         android:minHeight="100sp"
-        
-        android:text="Button_DL" />
+        android:minWidth="360sp"
+        android:text="C" />
 
     <Button
         android:id="@+id/button_TR"
@@ -95,10 +53,9 @@
         android:layout_alignBottom="@+id/buttonTL"
         android:layout_alignParentRight="true"
         android:layout_toRightOf="@+id/buttonTL"
-        android:minWidth="160sp"
         android:minHeight="100sp"
-        
-        android:text="Button_TR" />
+        android:minWidth="160sp"
+        android:text="B" />
 
     <Button
         android:id="@+id/buttonTL"
@@ -108,7 +65,7 @@
         android:layout_alignParentLeft="true"
         android:layout_toLeftOf="@+id/btnSearch"
         android:minHeight="100sp"
-        android:text="Button_TL" />
+        android:text="A" />
 
     <TextView
         android:id="@+id/information"
@@ -119,7 +76,7 @@
         android:layout_alignParentRight="true"
         android:layout_below="@+id/SwitchButton"
         android:layout_marginTop="26dp"
-        android:text="result" />
+        android:text=" " />
 
     <Button
         android:id="@+id/btnSearch"
@@ -130,7 +87,7 @@
         android:layout_alignParentRight="true"
         android:layout_toRightOf="@+id/button1"
         android:onClick="LoadEmployee"
-        android:text="następne pytanie" />
+        android:text="@string/nextQ_string" />
 
     <Button
         android:id="@+id/button1"
@@ -140,6 +97,6 @@
         android:layout_alignParentLeft="true"
         android:minWidth="160sp"
         android:onClick="LoadPreviousEmployee"
-        android:text="poprzednie pytanie" />
+        android:text="@string/prevQ_string" />
 
 </RelativeLayout>

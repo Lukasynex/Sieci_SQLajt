@@ -1,6 +1,7 @@
 package com.sqlajt_orajt;
 
 import java.util.Random;
+
 import android.os.Bundle;
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -9,17 +10,17 @@ import android.graphics.Color;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 /**
- * TODO:
- * naprawić, by apka działała poprawnie
- * losowy wybór pytań fałszywych
+ * TODO: naprawić, by apka działała poprawnie losowy wybór pytań fałszywych
+ * 
  * @author lukasz
- *
+ * 
  */
 
 public class MainActivity extends Activity {
@@ -31,18 +32,53 @@ public class MainActivity extends Activity {
 	private Random generator = new Random();
 	private int index = 0;
 	private MillionaireMan hubert;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		setContentView(R.layout.millionaire_layout);
 		// setContentView(R.layout.database_layout);
-		Button A = (Button)findViewById(R.id.buttonTL);
-		Button B = (Button)findViewById(R.id.button_TR);
-		Button C = (Button)findViewById(R.id.button_DL);
-		Button D = (Button)findViewById(R.id.button_DL);
-		
-		hubert  = new MillionaireMan(this, A, B, C, D);
+		final Button A = (Button) findViewById(R.id.buttonTL);
+		final Button B = (Button) findViewById(R.id.button_TR);
+		final Button C = (Button) findViewById(R.id.button_DL);
+		final Button D = (Button) findViewById(R.id.button_DR);
 
+		hubert = new MillionaireMan(this, A, B, C, D);
+		setupButtons();
+	}
+	private void setupButtons() {
+		final Button A = (Button) findViewById(R.id.buttonTL);
+		final Button B = (Button) findViewById(R.id.button_TR);
+		final Button C = (Button) findViewById(R.id.button_DL);
+		final Button D = (Button) findViewById(R.id.button_DR);
+		A.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				hubert.onA();
+			}
+		});
+		D.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				hubert.onD();
+			}
+		});
+		B.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				hubert.onB();
+			}
+		});
+		C.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				hubert.onC();
+			}
+		});
 	}
 
 	@Override
@@ -60,22 +96,14 @@ public class MainActivity extends Activity {
 			final RelativeLayout lay = (RelativeLayout) findViewById(R.id.aboutlayout);
 			lay.setBackgroundColor(Color.rgb(204, 255, 153));
 			TextView txt = (TextView) findViewById(R.id.About);
-			txt.setText("Aplikację stworzył Lukasyno, przerabiając gotowca od Hindusa, który miał bazę danych z nazwiskami i e-mailami\n"
-					+ "Apka zawiera ponad 200 pytań z materiału dot. sieci komputerowych. \n\nJeśli chcesz aplikację "
-					+ "z twoją bazą pytań, pisz: luk_15@yahoo.com");
+			txt.setText(getString(R.string.about_author));
 			return true;
 		} else if (id == R.id.action_regexp) {
 			setContentView(R.layout.about_layout);
 			final RelativeLayout lay = (RelativeLayout) findViewById(R.id.aboutlayout);
 			lay.setBackgroundColor(Color.rgb(153, 204, 255));
 			TextView txt = (TextView) findViewById(R.id.About);
-			txt.setText("Regexp, czyli wyrażenia regularne to wzorce opisujące łańcuchy symboli\n"
-					+ "Przykłady:\n\t id = '5' \twypisuje pytanie piąte\n"
-					+ "\todpowiedz like 'ACL%' \t-wypisuje rekord gdzie odpowiedź zaczyna się na ACL\n\t"
-					+ "\tpytanie like '%bgp%' \t-wypisuje rekord gdzie pytanie zawiera 'bgp' \n\t"
-					+ "\tpytanie like '%cisco' \t-wypisuje pytanie kończące się na 'cisco' \n\t"
-					+ "Wybór fragment działa analogicznie do wyrażenia (pytanie like '%bgp%'), wystarczy tylko wpisać bgp"
-					+ " jako fragment pytania");
+			txt.setText(getString(R.string.description));
 
 			return true;
 		}
@@ -95,25 +123,28 @@ public class MainActivity extends Activity {
 			editable.setHint("fragment pytania...");
 		}
 	}
-
-	public void SaveEmployee(View v) {
-
-		EditText txtName = (EditText) findViewById(R.id.txtName);
-		EditText txtEmail = (EditText) findViewById(R.id.txtEmail);
-
-		String pyt = txtName.getText().toString();
-		String odp = txtEmail.getText().toString();
-
-		TestAdapter mDbHelper = new TestAdapter(this);
-		mDbHelper.createDatabase();
-		mDbHelper.open();
-
-		if (mDbHelper.SaveRecord(pyt, odp)) {
-			Utility.ShowMessageBox(this, "Data saved.");
-		} else {
-			Utility.ShowMessageBox(this, "OOPS try again!");
-		}
-	}
+	/**
+	 * unused
+	 * @param v - used View
+	 */
+//	public void SaveEmployee(View v) {
+//
+//		EditText txtName = (EditText) findViewById(R.id.txtName);
+//		EditText txtEmail = (EditText) findViewById(R.id.txtEmail);
+//
+//		String pyt = txtName.getText().toString();
+//		String odp = txtEmail.getText().toString();
+//
+//		TestAdapter mDbHelper = new TestAdapter(this);
+//		mDbHelper.createDatabase();
+//		mDbHelper.open();
+//
+//		if (mDbHelper.SaveRecord(pyt, odp)) {
+//			Utility.ShowMessageBox(this, "Data saved.");
+//		} else {
+//			Utility.ShowMessageBox(this, "OOPS try again!");
+//		}
+//	}
 
 	public void FindMatches(View v) {
 		TextView question = (TextView) findViewById(R.id.CurrentQuestion);
@@ -197,34 +228,34 @@ public class MainActivity extends Activity {
 
 	public void LoadPreviousEmployee(View v) {
 		hubert.previousQuestion();
-//		
-//		index -= 2;
-//		if (index < 0)
-//			index = 222;
-//		LoadEmployee(v);
+		//
+		// index -= 2;
+		// if (index < 0)
+		// index = 222;
+		// LoadEmployee(v);
 	}
 
 	public void LoadEmployee(View v) {
 		hubert.nextQuestion();
-//		TestAdapter mDbHelper = new TestAdapter(this);
-//		mDbHelper.createDatabase();
-//		mDbHelper.open();
-//		++index;
-//		if (index == 224)
-//			index = 1;
-//		Cursor testdata = mDbHelper.getTestData(index);
-//
-//		String name = Utility.GetColumnValue(testdata, "PYTANIE");
-//		String email = Utility.GetColumnValue(testdata, "ODPOWIEDZ");
-//
-//		Utility.ShowMessageBox(this, name + "\n>>:" + email);
-//		mDbHelper.close();
+		// TestAdapter mDbHelper = new TestAdapter(this);
+		// mDbHelper.createDatabase();
+		// mDbHelper.open();
+		// ++index;
+		// if (index == 224)
+		// index = 1;
+		// Cursor testdata = mDbHelper.getTestData(index);
+		//
+		// String name = Utility.GetColumnValue(testdata, "PYTANIE");
+		// String email = Utility.GetColumnValue(testdata, "ODPOWIEDZ");
+		//
+		// Utility.ShowMessageBox(this, name + "\n>>:" + email);
+		// mDbHelper.close();
 	}
 
 	public void SwitchLayout(View v) {
 		currentLayout = !currentLayout;
 		if (!currentLayout)
-			setContentView(R.layout.activity_main);
+			setContentView(R.layout.millionaire_layout);
 		else
 			setContentView(R.layout.database_layout);
 	}

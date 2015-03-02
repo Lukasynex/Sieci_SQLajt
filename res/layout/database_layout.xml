@@ -3,16 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-    <EditText
-        android:id="@+id/findEdit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:hint="fragment pytania..."
-        android:layout_alignParentTop="true"
-        android:ems="10" >
-
-    </EditText>
 
     <Button
         android:id="@+id/FindBtn"
@@ -20,26 +10,17 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/findEdit"
-        android:layout_toLeftOf="@+id/nextBtn"
+        android:layout_toLeftOf="@+id/findEdit"
         android:onClick="FindMatches"
-        android:text="Find" />
-
-    <Button
-        android:id="@+id/nextBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/findEdit"
-        android:layout_below="@+id/findEdit"
-        android:onClick="showRandomRecord"
-        android:text="Random Question" />
+        android:text="@string/find_string" />
 
 	<TextView
 	    android:id="@+id/CurrentQuestion"
 	    android:layout_width="fill_parent"
 	    android:layout_height="200sp"
-	    android:layout_alignRight="@+id/SwitchButton"
+	    android:layout_alignParentRight="true"
 	    android:layout_below="@+id/FindBtn"
-	    android:text="Next Question"
+	    android:text="@string/nextQ_string"
 	    android:textSize="15sp" />
 
 	<TextView
@@ -49,24 +30,45 @@
         android:layout_below="@+id/CurrentQuestion"
         
         android:textSize="15sp"
-        android:text="Next Answer"/>
+        android:text="@string/nextA_string"/>
 
-	<Button
-	    android:id="@+id/SwitchButton"
+	<EditText
+	    android:id="@+id/findEdit"
 	    android:layout_width="wrap_content"
 	    android:layout_height="wrap_content"
-	    android:layout_toRightOf="@+id/findEdit"
-	    android:onClick="SwitchLayout"
-	    android:text="zmień okno" />
+	    android:layout_alignParentRight="true"
+	    android:layout_alignParentTop="true"
+	    android:layout_toRightOf="@+id/SwitchButton"
+	    android:ems="10"
+	    android:hint="@string/hint_string" />
 
 	<Button
 	    android:id="@+id/RegexButton"
 	    android:layout_width="wrap_content"
 	    android:layout_height="wrap_content"
 	    android:layout_above="@+id/CurrentQuestion"
-	    android:layout_alignLeft="@+id/SwitchButton"
-	    android:layout_alignRight="@+id/CurrentQuestion"
+	    android:layout_alignParentRight="true"
+	    android:layout_toRightOf="@+id/nextBtn"
 	    android:onClick="SwitchRegex"
-	    android:text="regex" />
+	    android:text="@string/regexp" />
+
+	<Button
+	    android:id="@+id/nextBtn"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_below="@+id/findEdit"
+	    android:layout_toRightOf="@+id/FindBtn"
+	    android:onClick="showRandomRecord"
+	    android:text="@string/random_string" />
+
+	<Button
+	    android:id="@+id/SwitchButton"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignBaseline="@+id/findEdit"
+	    android:layout_alignBottom="@+id/findEdit"
+	    android:layout_alignParentLeft="true"
+	    android:onClick="SwitchLayout"
+	    android:text="@string/switch_view" />
 
 </RelativeLayout>
